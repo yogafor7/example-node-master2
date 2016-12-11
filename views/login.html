@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>帳號登入</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="assets/css/main.css" />
+      <script src="/javascripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+      <script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+		<style type="text/css">
+			.panel-body{
+				padding: 50px 50px 0 50px;
+
+			}
+			.form-group{
+				margin-bottom: 35px;
+                padding: 30px 50px 0 50px;
+			}
+			.panel-title{
+				font-size: 24px;
+                padding: 30px 50px 0 50px;
+				font-weight: bold;
+			}
+		</style>
+        <script type="text/javascript">
+           function login(){
+               var username = $('#username').val(),password = $('#password').val();
+               var data = { "uname": username, "upwd":password};
+               $.ajax({
+                   url:'/login',
+                   type:'POST',
+                   data:data,
+                   success:function(data,status){
+                       if(status == 'success'){
+                           location.href='home';
+                       }
+                   },
+                   error:function(data,status){
+                     if(status == "error"){
+                         location.href='login'
+                     }
+                   }
+               });
+           }
+        </script>
+  </head>
+<body>
+<div class="container web-body" style="margin-top:100px;width: 900px;">
+    <%- message %>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="height: 50px;">
+                    <div class="panel-title" style="text-align: left">帳號登入</div>
+                </div>
+                <div class="panel-body">
+                    <form action="#" class="form-horizontal" role="form" method="post" >
+                        <div class="form-group">
+                            <input id="username" value="a3667496" type="text" class="form-control" name="username" placeholder="帳號" />
+                        </div>
+                        <div class="form-group">
+                            <input id="password" value="a3615136" type="password" class="form-control" name="password" autocomplete="off" placeholder="密碼" />
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-success btn-block" onclick="login();" style="width:83.2344px;height:45.5938px;" value="登 入" />
+
+                        </div>
+                        <div class="form-group">
+
+                            <a href="register" class="button fit" style="width:83.2344px;height:45.5938px;">註 冊</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
