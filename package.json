@@ -1,8 +1,12 @@
 {
   "name": "sodosopa",
   "version": "0.0.2",
-  "description": "一个简单的电商网站demo，使用了nodejs, express, mongodb, mongoose等功能模块。",
+  "description": "OK",
   "main": "app.js",
+    "engines": {
+    "node": "4.4.0",
+    "npm": "2.5..18"
+  },
   "dependencies": {
     "body-parser": "^1.10.2",
     "express": "^3.4.8",
@@ -13,9 +17,6 @@
     "path": "^0.4.10"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC"
 }
