@@ -3,9 +3,9 @@
   "version": "0.0.2",
   "description": "OK",
   "main": "app.js",
-    "engines": {
+  "engines": {
     "node": "4.4.0",
-    "npm": "2.5..18"
+    "npm": "2.5.18"
   },
   "dependencies": {
     "body-parser": "^1.10.2",
