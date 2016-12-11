@@ -1,12 +1,7 @@
 {
   "name": "sodosopa",
   "version": "0.0.2",
-  "description": "OK",
   "main": "app.js",
-  "engines": {
-    "node": "4.4.0",
-    "npm": "2.5.18"
-  },
   "dependencies": {
     "body-parser": "^1.10.2",
     "express": "^3.4.8",
@@ -17,6 +12,9 @@
     "path": "^0.4.10"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "",
   "license": "ISC"
 }
