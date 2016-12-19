@@ -2,6 +2,10 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var mongoose = require("mongoose");
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };       
+ 
+var mongodbUri = 'mongodb://yogafor7:a3615136@ds139278.mlab.com:39278/heroku_8czrql6hb';
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
@@ -9,7 +13,7 @@ var session = require('express-session');
 
 global.dbHelper = require( './common/dbHelper' );
 
-global.db = mongoose.connect("mongodb://127.0.0.1:27017/test1");
+global.db = mongoose.connect(mongodbUri, options);
 
 app.use(session({
     resave: 'ture',
@@ -20,11 +24,9 @@ app.use(session({
     }
 }));
 
-// 霈曉?views??嚗?銝箄??曉??曄??桀?
 app.set('views', path.join(__dirname, 'views'));
 
 
-// 霈曉?view engine??嚗?銝箇?憿菜芋?踹???//app.set('view engine', 'ejs');
 app.set( 'view engine', 'html' );
 app.engine( '.html', require( 'ejs' ).__express );
 
@@ -32,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
 
-// 霈曉???隞嗥敶?瘥??砍?辣
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
